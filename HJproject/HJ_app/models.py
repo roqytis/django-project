@@ -48,3 +48,19 @@ class SeoulPeople(models.Model):
     class Meta:
         managed = False
         db_table = 'seoul_people'
+
+class SeoulHospital(models.Model):
+    h_no = models.AutoField(primary_key=True)
+    h_name = models.CharField(max_length=255, blank=True, null=True)
+    h_open = models.CharField(max_length=255, blank=True, null=True)
+    h_addr = models.CharField(max_length=255, blank=True, null=True)
+    h_tel = models.CharField(max_length=255, blank=True, null=True)
+    h_kind = models.CharField(max_length=255, blank=True, null=True)
+    h_wi = models.FloatField(blank=True, null=True)
+    h_kung = models.FloatField(blank=True, null=True)
+    h_url = models.CharField(max_length=255, blank=True, null=True)
+    is_confirmed = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'seoul_hospital'
