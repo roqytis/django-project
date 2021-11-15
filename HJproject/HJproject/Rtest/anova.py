@@ -9,6 +9,7 @@ from statsmodels.formula.api import ols
 from statsmodels.stats.anova import anova_lm
 
 
+import scipy.
 config = {
 
     'host':'127.0.0.1',

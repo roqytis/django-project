@@ -50,6 +50,7 @@
     margin-right: auto;
     color: white;
     font-size: 3rem;
+    
 }
 
 header .header-content .header-content-inner hr {
@@ -164,5 +165,7 @@ a {
 .h1-head {
 	font-weight: 700;
 }
+
+
 
 

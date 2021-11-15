@@ -25,6 +25,12 @@
     		font-size: 1.2rem;
 		}
 		
+		img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		}
+		
     	.login-text h3{
 			font-weight: bold;
     		font-size: 1.2rem;
@@ -37,49 +43,141 @@
 		svg {
 			padding-bottom: 5px;
 		}
-		@media (min-width: 480px) { 
+		@media (min-width: 485px) { 
 			.chart {
 				width: 15rem;
 				height: 15rem;
 			}
+			.carousel-item h2 b {
+			    font-size: 1.3rem !important; 
+			}
+			.h-con {
+	            transform: translate(780px, 125%) !important;
+	            width: 2000px;
+	        }
+	        .h-con h5 {
+	        	font-size: 0.8rem;
+	        }
 		}
 		@media (min-width: 560px) { 
 			.chart {
 				width: 17rem;
 				height: 17rem;
 			}
+			
 		}
-		@media (min-width: 730px) { 
+		
+		@media (min-width: 700px) { 
 			.chart {
 				width: 20rem;
 				height: 20rem;
 			}
+			.h-con {
+	            transform: translate(755px, 123%) !important;
+	            width: 2000px;
+	        }
+	        .h-con h5 {
+	        	font-size: 0.8rem;
+	        }
+	        .carousel-item h2 b {
+			    font-size: 1.5rem !important; 
+			}
+			
 		}
-		@media (min-width: 735px) { 
+		@media (min-width: 750px) { 
 			.chart {
 				width: 23rem;
 				height: 23rem;
 			}
+			.h-con {
+	            transform: translate(680px, 170%) !important;
+	            width: 2000px;
+	        }
+	        .h-con h5 {
+	        	font-size: 1rem;
+	        }
+	        .carousel-item h2 b {
+			    font-size: 1.5rem !important; 
+			}
+		}
+		
+		@media (min-width: 960px) { 
+			.chart {
+				width: 25rem;
+				height: 25rem;
+			}
+			.h-con {
+	            transform: translate(680px, 145%) !important;
+	            width: 2000px;
+	        }
+	        .h-con h5 {
+	        	font-size: 1.2rem
+	        }
+	        .carousel-item h2 b {
+	        	font-size : 2rem !important;
+	        }
+			
 		}
 		@media (min-width: 975px) { 
 			.chart {
 				width: 25rem;
 				height: 25rem;
 			}
+			.h-con {
+	            transform: translate(580px, 190%) !important;
+	            width: 2000px;
+	        }
+	        .h-con h5 {
+	        	font-size: 1.5rem
+	        }
+	        .carousel-item h2 b {
+	        	font-size : 2rem !important;
+	        }
+			
 		}
 		
 		@media (min-width: 1180px) { 
 			.chart {
-				width: 30rem;
-				height: 30rem;
+				width: 37.5rem;
+				height: 37.5rem;
 			}
+			.h-con {
+	            transform: translate(500px, 250%) !important;
+	            width: 2000px;
+	        }
+	        .h-con h5 {
+	        	font-size: 1.5rem
+	        }
+	        .carousel-item h2 b {
+	        	font-size : 2rem !important;
+	        }
+			
 		}
-		@media (min-width: 1200px) { 
+		
+		@media (min-width: 1300px) { 
 			.chart {
 				width: 37.5rem;
 				height: 37.5rem;
 			}
+			.h-con {
+	            transform: translate(420px, 290%) !important;
+	            width: 2000px;
+	        }
+	        .h-con h5 {
+	        	font-size: 1.5rem
+	        }
+	        .carousel-item h2 b {
+	        	font-size : 2rem !important;
+	        }
+			
 		}
+/* 		@media (min-width: 1180px) {  */
+/* 			.chart { */
+/* 				width: 37.5rem; */
+/* 				height: 37.5rem; */
+/* 			} */
+			
+/* 		} */
 		.content {
 			position: absolute;
 			top:50%;
@@ -91,11 +189,11 @@
 		}
 		.d-block {
 			filter: brightness(50%);
-			width: 1280px;
-			height: 650px;
+			/* width: 1280px;
+			height: 650px; */
 		}
 		.h-con{
-            transform: translate(522px, 190%);
+            transform: translate(450px, 250%);
             width: 2000px;
         }
 		.h-com{
@@ -107,10 +205,16 @@
         .d-block {
             margin: 0 auto;
             filter: brightness(50%);
-            width: 1080px !important;
-            height: 650px;
+            /* width: 1080px !important;
+            height: 650px; */
         }
-        h5 { font-size : 1.5rem }
+        h5 { 
+        	font-size : 1.5rem;
+        }
+        .carousel-item h2 b {
+        	font-size : 2rem;
+        }
+        
 
     </style>
   </head>
@@ -182,7 +286,7 @@
         <div id="carouselExampleFade" class="ad-image carousel slide carousel-fade" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src ="../static/images/banner2.jpg" class="banner-img d-block w-100" alt="...">
+              <img src ="../static/images/banner.png" class="banner-img d-block w-100" alt="...">
             </div>
             
 			{% for a in ad %}

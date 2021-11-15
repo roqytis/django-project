@@ -13,6 +13,41 @@ from django.core.files.storage import FileSystemStorage
 import random
 UPLOAD_DIR="C:\work\psou\HJproject\HJ_app\media\images"
 
+
+# Create your views here.
+# def mainFunc(request):
+#     godok = Godok.objects.all().values()
+#     center = SeoulCenter.objects.all().values()
+#     elder = SeoulElder.objects.all().values()
+#     people = SeoulPeople.objects.all().values()
+#
+#     """
+#     DB 데이터 print 확인
+#     print(godok)
+#     print(center)
+#     print(elder)
+#     print(people)
+#     """
+#
+#     godok_df = pd.DataFrame.from_records(godok)
+#     godok_df.columns = ['번호', '년도', '사망자수']
+#     print(godok_df)
+#
+#     center_df = pd.DataFrame.from_records(center)
+#     center_df.columns = ['번호', '년도', '자치구명', '노인복지관', '경로당', '노인교실']
+#     print(center_df)
+#
+#     elder_df = pd.DataFrame.from_records(elder)
+#     elder_df.columns = ['번호', '기간', '자치구명', '기초생활수급', '저소득', '일반']
+#     print(elder_df)
+#
+#     people_df = pd.DataFrame.from_records(people)
+#     people_df.columns = ['번호', '기간', '자치구명', '전체인구', '65세이상 노인']
+#     print(people_df)
+#
+#     return render(request, 'main.html')
+
+
 def mainFunc(request):
     map = folium.Map(location=[37.541, 126.986], zoom_start=11, tiles='cartodbpositron')
 
@@ -34,6 +69,21 @@ def mainFunc(request):
         hp_df = pd.DataFrame.from_records(hp)
         #hp_df.columns = ['번호', '여부', '전화', '주소', '이름', '종류', '위도', '경도', 'url']
         hp_df.columns = ['번호', '이름', '비밀번호', '여부', '주소', '전화', '종류', '위도', '경도', 'url', '회원가입여부']
+    
+        # # 광고배너
+        # ad = SeoulHospitalAd.objects.all().values()
+        # # ad = SeoulHospitalAd.objects.all()
+        # ad_df = pd.DataFrame.from_records(ad)
+        # ad_df.columns = ['번호', '이름', '주소', '전화', 'url', 'image', 'comment']
+        # print(ad_df)
+        #
+        # # 광고 표시할 병원 랜덤으로 뽑기
+        # ad_list = []
+        # for i in range(0, len(ad_df)): 
+        #     ad_list.append(ad_df.iloc[i])
+        #
+        # ad_list_ran = random.sample(ad_list, 1)
+        # print(ad_list_ran, type(ad_list_ran))
         
     except Exception as e:
         print('err : ', e)
@@ -176,3 +226,12 @@ def upload_success(request):
             h_image = h_image,
             h_comment = h_comment
         ).save()    
+        
+            
+        print('file', h_image)
+        print(h_name, h_addr, h_tel, h_url, h_comment)        
+        return redirect('/')        
+
+
+
+    
