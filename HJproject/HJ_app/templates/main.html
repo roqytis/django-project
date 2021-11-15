@@ -1,34 +1,259 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>장고 프로젝트</title>
-<style>
-	.head{
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>HJ Project</title>
+    <style type="text/css">
+    	a:hover {
+			color: white;
+		}
+    	.chart-text {
+			text-align: center;
+			font-weight: 600 !important;
+		}
+		
+    	.login-text{
+			color: white !important;
+			font-weight: bold;
+    		font-size: 1.2rem;
+		}
+		
+    	.login-text h3{
+			font-weight: bold;
+    		font-size: 1.2rem;
+		}
+		.chart {
+			width: 37.5rem;
+			height: 37.5rem;
+			
+		}
+		svg {
+			padding-bottom: 5px;
+		}
+		@media (min-width: 480px) { 
+			.chart {
+				width: 15rem;
+				height: 15rem;
+			}
+		}
+		@media (min-width: 560px) { 
+			.chart {
+				width: 17rem;
+				height: 17rem;
+			}
+		}
+		@media (min-width: 730px) { 
+			.chart {
+				width: 20rem;
+				height: 20rem;
+			}
+		}
+		@media (min-width: 735px) { 
+			.chart {
+				width: 23rem;
+				height: 23rem;
+			}
+		}
+		@media (min-width: 975px) { 
+			.chart {
+				width: 25rem;
+				height: 25rem;
+			}
+		}
+		
+		@media (min-width: 1180px) { 
+			.chart {
+				width: 30rem;
+				height: 30rem;
+			}
+		}
+		@media (min-width: 1200px) { 
+			.chart {
+				width: 37.5rem;
+				height: 37.5rem;
+			}
+		}
+		.content {
+			position: absolute;
+			top:50%;
+		    left:50%;
+		    transform: translate(-50%, -50%);                                                                   
+		    font-size:0.6rem;
+		    color: white;
+		    z-index: 3;
+		}
+		.d-block {
+			filter: brightness(50%);
+			width: 1280px;
+			height: 650px;
+		}
+		.h-con{
+            transform: translate(522px, 190%);
+            width: 2000px;
+        }
+		.h-com{
+			text-align: center;
+		}
+		.banner-img {
+            filter: brightness(100%) !important;
+        }
+        .d-block {
+            margin: 0 auto;
+            filter: brightness(50%);
+            width: 1080px !important;
+            height: 650px;
+        }
+        h5 { font-size : 1.5rem }
+
+    </style>
+  </head>
+  <script type="text/javascript">
+    
+	function popup(){
+		window.name = 'main';
+		window.open('adF','insert','width=550, height=650, left=300, top=150');
 	}
-</style>
-
-</head>
-<body background="/static/images/mainPageImage.jpg" style="background-repeat: no-repeat; background-size: cover;">
-	<div class ="head">
-		<div style="width: 50px;">
-			<img src="/static/images/logo.png" id="mylogo" style="width: 30px;" />
-		</div>
-		<div style="width: 100%; text-align: center;">
-		 제목
-	    </div>
+	</script>
+  <body>
+	<!-- NavBar -->
+	<div id="wrap">
+		<nav class="navbar navbar-default navbar-non-fixed-top affix-top" >
+			<div class="container">
+			{% if login %}
+			    <span class="login-text">{{login}}님 안녕하세요.</span>
+			    <a href="logout">로그아웃</a>
+			    <a href="javascript:popup();">광고신청</a>
+			{% else %}
+			    <a href="registered">병원 등록 신청</a>
+			    <a href="login">로그인</a>
+			{% endif %}
+				
+			</div>
+		</nav>
+		<header>
+			<img src="../static/images/main.jpg"/>
+		
+			<div class="header-content">
+				<div>
+					<div class="header-content-inner">
+						<h1>HJ Project</h1>
+						<h3>노인 복지를 위한 사이트</h3>
+						<hr class="light">
+					</div>
+				</div>
+			</div>
+		
+		</header>	
 	</div>
+	
+	<div class="container-fluid">
+		<div class="container title-board">
+			<h1 class="h1-head">
+			서울시 자치구별
+			<br>
+			요양병원
+			</h1>
+		</div>
+	</div>
+	<div class="maps container">
+			{{m|safe}}
+	</div>
+	
 	<hr>
-	{{m|safe}}
-<a href="createHospital">병원 등록 신청</a><br><a href="LoginF">로그인</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<a>2.데이터 분석 방법</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<a>3.데이터 분석 결과 평가 방법</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<a>4.데이터 분석 시작</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<a>5.결론</a>
+	
+	<div class="container-fluid">
+		<div class="container title-board">
+			<h1 class="h1-head">
+				병원 배너 목록
+			</h1>
+		</div>
+	</div>
+	
+	
+	{% if ad.count > 0 %}
+    <div class="container ad-con">
+        <div id="carouselExampleFade" class="ad-image carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src ="../static/images/banner2.jpg" class="banner-img d-block w-100" alt="...">
+            </div>
+            
+			{% for a in ad %}
+            <div class="carousel-item ">
+            	<div class="content">
+					<div class="h-com">
+                        <h2><b>{{ a.h_comment }}</b></h2>
+                    </div>
+                    <div class="h-con">
+                        <h5><b>{{ a.h_name }}</b><br></h5>
+                        <h5><b>{{ a.h_addr }}</b><br></h5>
+                        <h5><b>{{ a.h_tel }}</b><br></h5>
+                    </div>
+	            </div>
+                <a href="{{ a.h_url }}"><img src="../media/{{ a.h_image }}" class="d-block w-100" alt="..."></a>
+            </div>
+            {% endfor %}
 
-
-</body>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+    </div>
+	{% else %}
+	    <p> 광고 신청한 병원 데이터가 없습니다. </p>
+	{% endif %}
+	
+	<hr>
+	<div class="container-fluid">
+		<div class="container chart-board">
+			<h1 class="h1-head">
+				차트
+				<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-file-bar-graph-fill" viewBox="0 0 16 16">
+				  <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-2 11.5v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z"></path>
+				</svg>
+			</h1>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 chart-text">
+					<h3><b>2011년 ~ 2020년 서울시 고령화에 대한 통계</b></h3>
+				</div>
+					<div class="col-6">
+						<img class="chart" src="../static/images/seoul_population_aging.png"><br>
+					</div>
+					<div class="col-6">
+						<img class="chart" src="../static/images/population_aging_elder.png"><br>
+					</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-12 chart-text" style="padding-top: 30px;">
+					<h3><b>2011년 ~ 2020년 서울시 독거노인 고독사와<br>
+					독거노인과 시설수에 대한 통계</b></h3>
+				</div>
+					<div class="col-6">
+						<img class="chart" src="../static/images/dying_alone.png"><br>
+					</div>
+					<div class="col-6">
+						<img class="chart" src="../static/images/elder_center.png"><br>
+					</div>
+			</div>
+		</div>
+	</div>
+	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
 </html>

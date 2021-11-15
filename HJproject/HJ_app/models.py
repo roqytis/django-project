@@ -52,6 +52,7 @@ class SeoulPeople(models.Model):
 class SeoulHospital(models.Model):
     h_no = models.AutoField(primary_key=True)
     h_name = models.CharField(max_length=255, blank=True, null=True)
+    h_pass = models.CharField(max_length=255, blank=True, null=True)
     h_open = models.CharField(max_length=255, blank=True, null=True)
     h_addr = models.CharField(max_length=255, blank=True, null=True)
     h_tel = models.CharField(max_length=255, blank=True, null=True)
@@ -64,3 +65,20 @@ class SeoulHospital(models.Model):
     class Meta:
         managed = False
         db_table = 'seoul_hospital'
+
+class SeoulHospitalAd(models.Model):
+    h_no = models.AutoField(primary_key=True)
+    h_name = models.CharField(max_length=255)
+    h_addr = models.CharField(max_length=255)
+    h_tel = models.CharField(max_length=255)
+    h_url = models.CharField(max_length=255)
+    h_image = models.ImageField(upload_to='images/', blank=True,
+                              null= True)
+    h_comment = models.CharField(max_length=50)
+    
+    class Meta:
+        managed = False
+        db_table = 'seoul_hospital_ad'
+
+    
+    

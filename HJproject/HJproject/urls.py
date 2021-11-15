@@ -16,13 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path 
 from HJ_app import views
+from HJproject import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin', admin.site.urls),
-    
-    path('', views.mainFunc),
-    path('createHospital', views.CreateHospitalFunc), # 회원가입 폼
+    path('admin/', admin.site.urls),
+
+    path('', views.mainFunc), # 회원가입 폼
     path('registered', views.RegisteredFunc), # 회원가입 신청
-    path('loginF', views.LoginFormFunc), # 로그인 폼
-    path('login', views.LoginFunc), # 로그인 
-]
+    path('login', views.LoginFunc), # 로그인
+    path('logout/', views.LogoutFunc), # 로그아웃
+    path('adF/', views.upload_success), # 광고폼 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

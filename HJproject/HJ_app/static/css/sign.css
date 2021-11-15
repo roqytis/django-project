@@ -1,0 +1,37 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Noto Sans KR"!important;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/notosanskr/v13/PbykFmXiEBPT4ITbgNA5Cgm203Tq4JJWq209pU0DPdWuqxJFA4GNDCBYtw.0.woff2)
+    format("woff2");
+}
+
+body {
+	min-height: 100vh; 
+	background: -webkit-gradient(linear, left bottom, right top, from(#F7CAC9), to(#92A8D1)); 
+	background: -webkit-linear-gradient(bottom left, #F7CAC9 0%, #92A8D1 100%); 
+	background: -moz-linear-gradient(bottom left, #F7CAC9 0%, #92A8D1 100%); 
+	background: -o-linear-gradient(bottom left, #F7CAC9 0%, #92A8D1 100%); 
+	background: linear-gradient(to top right, #F7CAC9 0%, #92A8D1 100%);
+
+}
+
+.input-form { 
+	max-width: 680px; 
+	margin-top: 80px; 
+	padding: 32px; 
+	background: #fff; 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15); 
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15) 
+}
+
+.btn-color {
+	background-color: #cccccc;
+}
+

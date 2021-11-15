@@ -1,5 +1,5 @@
 from django.contrib import admin
-from HJ_app.models import SeoulHospital
+from HJ_app.models import SeoulHospital, SeoulHospitalAd
 from django.contrib.admin import SimpleListFilter
 
 
@@ -24,6 +24,10 @@ class HospitalFilter(SimpleListFilter):
 
 @admin.register(SeoulHospital)
 class HospitalAdmin(admin.ModelAdmin):
-    list_display = ('h_name', 'h_open', 'h_addr', 'h_tel','h_kind','h_wi', 'h_kung', 'h_url', 'is_confirmed')
+    list_display = ('h_name', 'h_pass', 'h_open', 'h_addr', 'h_tel','h_kind','h_wi', 'h_kung', 'h_url', 'is_confirmed')
     list_editable = ('is_confirmed',)
     list_filter = [HospitalFilter]
+    
+@admin.register(SeoulHospitalAd)
+class HospitalAd_Admin(admin.ModelAdmin):
+    list_display = ('h_name', 'h_addr', 'h_tel','h_url', 'h_image', 'h_comment')
